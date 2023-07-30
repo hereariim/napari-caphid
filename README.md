@@ -86,7 +86,7 @@ Important:
 
 The widget get three input:
 - Mask : Mask stack
-- Pick a table : Aphid.csv
+- Pick a table : Path/to/Directory/Aphid.csv
 - Country : The country where images were taken
 
 The widget gives one output:
