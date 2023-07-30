@@ -11,7 +11,7 @@ Annotation of aphid and update table
 
 ----------------------------------
 
-This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookiecutter-napari-plugin] template.
+Napari-caphid was developed for updating table of quantitative data from images. Napari-caphid was developed by Imhorphen Team (french team of University of Angers and INRAe Angers) for ECLECTIC Team (french team of University of Paris-Saclay and CNRS).
 
 <!--
 Don't miss the full getting started guide to set up your new package:
