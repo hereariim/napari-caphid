@@ -1,36 +1,24 @@
 import numpy as np
+# import pytest
+from napari.types import LabelsData
 
-from napari_caphid import ExampleQWidget, example_magic_widget
+from napari_caphid import process_func
 
+# @pytest.fixture
+# def masks_stacks_func():
+#     masks_stacks = np.zeros((10,1920,2560))
+#     for ix in range(10):
+#         masks_stacks[ix,:,:] = np.random.randint(6,size=(1920,2560))
+#     return LabelsData(masks_stacks)
 
-# make_napari_viewer is a pytest fixture that returns a napari viewer object
-# capsys is a pytest fixture that captures stdout and stderr output streams
-def test_example_q_widget(make_napari_viewer, capsys):
-    # make viewer and add an image layer using our fixture
-    viewer = make_napari_viewer()
-    viewer.add_image(np.random.random((100, 100)))
+# def get_er(*args, **kwargs):
+#     er_func = process_func()
+#     return er_func(*args, **kwargs)
 
-    # create our widget, passing in the viewer
-    my_widget = ExampleQWidget(viewer)
-
-    # call our widget method
-    my_widget._on_click()
-
-    # read captured output and check that it's as we expected
-    captured = capsys.readouterr()
-    assert captured.out == "napari has 1 layers\n"
-
-
-def test_example_magic_widget(make_napari_viewer, capsys):
-    viewer = make_napari_viewer()
-    layer = viewer.add_image(np.random.random((100, 100)))
-
-    # this time, our widget will be a MagicFactory or FunctionGui instance
-    my_widget = example_magic_widget()
-
-    # if we "call" this object, it'll execute our function
-    my_widget(viewer.layers[0])
-
-    # read captured output and check that it's as we expected
-    captured = capsys.readouterr()
-    assert captured.out == f"you have selected {layer}\n"
+# # We run a test to check if output is numpy array and binary
+# def test_process_func(masks_stacks_func):
+#     my_widget_thd = get_er(masks_stacks_func,path_to_raw_table_,Country_='belgium')
+#     #check if output is numpy array
+#     assert type(my_widget_thd)==np.ndarray
+#     #check if output is binary
+#     assert len(np.unique(my_widget_thd))==2
