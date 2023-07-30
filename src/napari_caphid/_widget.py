@@ -102,9 +102,9 @@ def update_table_csv(df_new,country_det,path_to_outlier,current_raw_table_df):
     current_raw_table_df.to_csv(os.path.join(path_to_outlier,"output_dataframe.csv"),index=False)
     
 
-@magic_factory(country_det={"choices": ['france', 'belgium', 'spain','']},
+@magic_factory(Country_={"choices": ['france', 'belgium', 'spain','']},
                path_to_raw_table_={"label": "Pick a table:"})
-def process_func(layer_data_: LabelsData,path_to_raw_table_=pathlib.Path.cwd(),country_det=''):
+def process_func(Mask_: LabelsData,path_to_raw_table_=pathlib.Path.cwd(),Country_=''):
     #path_to_raw_table_ = r"D:\BACKUP_DESKTOP_E6U3VO4\User\Aphid\outlier\Aphid.csv"
     
     #I)
@@ -124,7 +124,7 @@ def process_func(layer_data_: LabelsData,path_to_raw_table_=pathlib.Path.cwd(),c
     
     # print("Stack image",stack_images_files[ix],'<',os.path.join(path_to_outlier,stack_images_files[ix]),'>')
     # country_det = detect_country_f(dico_pays,stack_images_files[ix])
-    
+    country_det = Country_
     print("Country",country_det)
     chemin_country = os.path.join(path_to_outlier,dico_pays[country_det])
     
@@ -134,7 +134,7 @@ def process_func(layer_data_: LabelsData,path_to_raw_table_=pathlib.Path.cwd(),c
     A = nom_des_images_image_dossier(total_path_dossier_image)
     
     # current_array = imread(os.path.join(path_to_outlier,stack_images_files[ix]))
-    current_array = layer_data_
+    current_array = Mask_
     current_array_cp = np.copy(current_array)
 
     if country_det=="france":

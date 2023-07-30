@@ -33,6 +33,68 @@ To install latest development version :
 
     pip install git+https://github.com/hereariim/napari-caphid.git
 
+## Getting started
+
+### Foreword
+
+Before using the plugin, the directory must be structured as follows:
+
+```
+└── Directory
+    ├── France
+    │   ├── image
+    │   │   ├── img_1.tif
+    │   │   ├── img_2.tif
+    │   │   ...
+    │   │   └── img_n.tif
+    │   ├── mask
+    │   │   ├── msk_1.tif
+    │   │   ├── msk_2.tif
+    │   │   ...
+    │   │   └── msk_n.tif
+    │   ├── img_1.tif
+    │   ├── msk_1.tif
+    │   ├── img_2.tif
+    │   ├── msk_2.tif
+    │   ...
+    │   ├── img_n.tif
+    │   └── msk_n.tif
+    │ 
+    ├── Belgium
+    │   ├── image
+    │   │   └── ...
+    │   ├── mask
+    │   │   └── ...
+    │   └── ...
+    ├── Spain
+    │   ├── image
+    │   │   └── ...
+    │   ├── mask
+    │   │   └── ...
+    │   └── ...
+    └── Aphid.csv
+```
+
+Some explanation about structure. The directory contained three folders (France, Spain, Belgium) and one file (Aphid.csv).
+- Each folders (France, Spain, Belgium) contains a set of images and masks and two folders (image, mask). The folder image contains images from the set of images. The folder mask contains masks from the set of masks.
+- The file Aphid.csv is a table with quantitative data of aphids from inital process of aphid image processing.
+
+Important:
+- The structure of directory is very important because it will be useful to get image name.
+
+### Getting started
+
+The widget get three input:
+- Mask : Mask stack
+- Pick a table : Aphid.csv
+- Country : The country where images were taken
+
+The widget gives one output:
+- A new table .csv which is the Aphid.csv updated.
+
+### What's it for ?
+
+This widget gives quantitative data from Mask stack. These quantitative data will be contained into dataframe. Quantitative data linked to current masks contained in the Aphid.csv file will be deleted. Then, the new quantitative data contained in the dataframe will be integrated into the Aphid.csv file. In this way, the Aphid.csv file is updated.
 
 ## Contributing
 
